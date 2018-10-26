@@ -14,7 +14,7 @@ def get_version():
     fp, pathname, desc = imp.find_module('__meta__', [path])
     try:
         meta = imp.load_module('__meta__', fp, pathname, desc)
-        return v.__version__, v.__version__._get_canonical()
+        return meta.__version__, meta.__version_info__._get_dev_status()
     except Exception:
         print(traceback.format_exc())
     finally:

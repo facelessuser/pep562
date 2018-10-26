@@ -1,7 +1,8 @@
-backport
 MERCHANTABILITY
 NONINFRINGEMENT
-sublicense
-sortable
-pre
 Pre
+backport
+pre
+prerelease
+sortable
+sublicense

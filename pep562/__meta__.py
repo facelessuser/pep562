@@ -10,7 +10,7 @@ Release types are named is such a way they are comparable with ease.
 - pre-releases will have a pre-release build number greater than 0
 - post-release is only applied if post-release build is greater than 0
 - development branches can be applied to pre, post, or final builds as development.
-  (`DEV` being equvialent to `DEV_FINAL`). All `DEV` releases are sorted before even `ALPHA`.
+  (`DEV` being equivalent to a development `FINAL`). All `DEV` releases are sorted before `ALPHA`.
 - `DEV` is currently always appended to the end of the release string and given the build of 0.
   As we don't manage build releases, `DEV` is more of a way to mark that the current code is in development.
   If we were doing regular builds and putting them on a server, then the build number would be more important.
@@ -45,7 +45,6 @@ RC = 6
 FINAL = 7
 
 PRE_REL = (DEV_ALPHA, DEV_BETA, DEV_RC, ALPHA, BETA, RC)
-DEV_REL = (DEV_ALPHA, DEV_BETA, DEV_RC, DEV)
 REL_MAP = {DEV_ALPHA: "a", DEV_BETA: "b", DEV_RC: "rc", DEV: "", ALPHA: "a", BETA: "b", RC: "rc", FINAL: ""}
 DEV_STATUS = {
     DEV: '2 - Pre-Alpha',
@@ -67,9 +66,9 @@ class Pep440Version(namedtuple('Pep440Version', ['epoch', 'major', 'minor', 'rel
 
         # Should be a valid release.
         if not (release in REL_MAP):  # pragma: no cover
-            raise ValueError("The value '{}' does not indicate a valid release type.".format(vi.release))
+            raise ValueError("The value '{}' does not indicate a valid release type.".format(self.release))
         # Pre-release releases should have a pre-release value.
-        if not (pre > 0 if release in PRE_REL else pre == 0):  # pragma: no cover
+        if not (pre > 0 if release < PRE_REL else pre == 0):  # pragma: no cover
             raise ValueError("Prereleases should have a value greater than '0'.")
 
         return super(Pep440Version, cls).__new__(cls, epoch, major, minor, release, pre, post)
@@ -82,7 +81,7 @@ class Pep440Version(namedtuple('Pep440Version', ['epoch', 'major', 'minor', 'rel
     def _is_dev(self):
         """Is development."""
 
-        return self.release in DEV_REL
+        return self.release < ALPHA
 
     def _is_post(self):
         """Is post."""

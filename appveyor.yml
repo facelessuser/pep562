@@ -34,8 +34,8 @@ test_script:
   - tox --version
   - tox
 
-# after_test:
-#   - if not ("%TOXENV%" == "lint") codecov
+after_test:
+  - if not ("%TOXENV%" == "lint") codecov
 
 matrix:
   fast_finish: true

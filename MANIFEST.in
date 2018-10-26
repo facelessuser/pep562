@@ -1,0 +1,9 @@
+recursive-include pep562 *.py
+recursive-include tests *.py
+recursive-include requirements *.txt
+include setup.py
+include setup.cfg
+include tox.ini
+include LICENSE.md
+include README.md
+include MANIFEST.in

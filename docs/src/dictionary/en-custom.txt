@@ -4,5 +4,6 @@ Pre
 backport
 pre
 prerelease
+prereleases
 sortable
 sublicense

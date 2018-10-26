@@ -12,7 +12,7 @@ Release types are named is such a way they are comparable with ease.
 - development branches can be applied to any build. `DEV` is sorted before the current version and
   after the previous version. It also comes before prereleases.
 - `DEV` is currently always appended to the end of the release string and given the build of 0.
-  If needed, you can specify the optional dev build at the end `Pep440Version(1, 2, 3, DEV, 0, 0, dev=1)`.
+  If needed, you can specify the optional development build at the end `Pep440Version(1, 2, 3, DEV, 0, 0, dev=1)`.
 
 Acceptable version releases:
 
@@ -61,8 +61,11 @@ DEV_STATUS = {
 class Pep440Version(namedtuple('Pep440Version', ['major', 'minor', 'micro', 'release', 'pre', 'post', 'dev'])):
     """Pep440 version."""
 
-    def __new__(cls, major, minor, micro, release, pre, post, *, dev=0):  # pragma: no cover
+    def __new__(cls, major, minor, micro, release, pre, post, *args, dev=0):  # pragma: no cover
         """Validate version info."""
+
+        if args:
+            raise ValueError("{} expected 6 arguments, got {}".format(cls.__name__, 6 + len(args)))
 
         # Ensure all parts are positive integers.
         for value in (major, minor, micro, release, pre, post):

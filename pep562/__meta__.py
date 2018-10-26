@@ -66,9 +66,9 @@ class Pep440Version(namedtuple('Pep440Version', ['epoch', 'major', 'minor', 'rel
 
         # Should be a valid release.
         if not (release in REL_MAP):  # pragma: no cover
-            raise ValueError("The value '{}' does not indicate a valid release type.".format(self.release))
+            raise ValueError("The value '{}' does not indicate a valid release type.".format(release))
         # Pre-release releases should have a pre-release value.
-        if not (pre > 0 if release < PRE_REL else pre == 0):  # pragma: no cover
+        if not (pre > 0 if release in PRE_REL else pre == 0):  # pragma: no cover
             raise ValueError("Prereleases should have a value greater than '0'.")
 
         return super(Pep440Version, cls).__new__(cls, epoch, major, minor, release, pre, post)

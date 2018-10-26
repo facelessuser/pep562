@@ -1,8 +1,22 @@
+[![Unix Build Status][travis-image]][travis-link]
+[![Windows Build Status][appveyor-image]][appveyor-link]
+[![Coverage][codecov-image]][codecov-link]
+[![pypi-version][pypi-image]][pypi-link]
+![License][license-image-mit]
+
 # PEP 562
 
 ## Overview
 
 A backport of PEP 562. Allows controlling a module's `__dir__` and `__getattr__`. Useful for deprecating attributes. Works for Python 2.7+, and on versions greater than Python 3.7 it will do nothing allowing it to be used in projects that support Python 3.7 and below.
+
+## Install
+
+Installation is done with `pip`:
+
+```
+pip install pep562
+```
 
 ## Usage
 
@@ -69,3 +83,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[travis-image]: https://img.shields.io/travis/facelessuser/pep562/master.svg?label=Unix%20Build
+[travis-link]: https://travis-ci.org/facelessuser/pep562
+[appveyor-image]: https://img.shields.io/appveyor/ci/facelessuser/pep562/master.svg?label=Windows%20Build
+[appveyor-link]: https://ci.appveyor.com/project/facelessuser/pep562
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
+[codecov-image]: https://img.shields.io/codecov/c/github/facelessuser/pep562/master.svg
+[codecov-link]: http://codecov.io/github/facelessuser/pep562?branch=master
+[pypi-image]: https://img.shields.io/pypi/v/pep562.svg
+[pypi-link]: https://pypi.python.org/pypi/pep562
+[license-image-mit]: https://img.shields.io/badge/license-MIT-blue.svg

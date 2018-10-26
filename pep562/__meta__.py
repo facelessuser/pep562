@@ -61,14 +61,14 @@ DEV_STATUS = {
 class Pep440Version(namedtuple('Pep440Version', ['epoch', 'major', 'minor', 'release', 'pre', 'post'])):
     """Pep440 version."""
 
-    def __new__(cls, epoch, major, minor, release, pre, post):
+    def __new__(cls, epoch, major, minor, release, pre, post):  # pragma: no cover
         """Validate version info."""
 
         # Should be a valid release.
-        if not (release in REL_MAP):  # pragma: no cover
+        if not (release in REL_MAP):
             raise ValueError("The value '{}' does not indicate a valid release type.".format(release))
         # Pre-release releases should have a pre-release value.
-        if not (pre > 0 if release in PRE_REL else pre == 0):  # pragma: no cover
+        if not (pre > 0 if release in PRE_REL else pre == 0):
             raise ValueError("Prereleases should have a value greater than '0'.")
 
         return super(Pep440Version, cls).__new__(cls, epoch, major, minor, release, pre, post)
@@ -93,7 +93,7 @@ class Pep440Version(namedtuple('Pep440Version', ['epoch', 'major', 'minor', 'rel
 
         return DEV_STATUS[self.release]
 
-    def _get_canonical(self):
+    def _get_canonical(self):  # pragma: no cover
         """Get the canonical output string."""
 
         # Assemble epoch, major, minor version and append `pre`, `post`, or `dev` if needed..
@@ -111,6 +111,5 @@ class Pep440Version(namedtuple('Pep440Version', ['epoch', 'major', 'minor', 'rel
         return ver
 
 
-#   (major, minor, micro, release type, pre-release build, post-release build, development-release)
 __version_info__ = Pep440Version(1, 0, 0, BETA, 1, 0)
 __version__ = __version_info__._get_canonical()

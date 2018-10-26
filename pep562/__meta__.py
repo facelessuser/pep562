@@ -61,11 +61,8 @@ DEV_STATUS = {
 class Pep440Version(namedtuple('Pep440Version', ['major', 'minor', 'micro', 'release', 'pre', 'post', 'dev'])):
     """Pep440 version."""
 
-    def __new__(cls, major, minor, micro, release, pre, post, *args, dev=0):  # pragma: no cover
+    def __new__(cls, major, minor, micro, release, pre, post, dev=0):  # pragma: no cover
         """Validate version info."""
-
-        if args:
-            raise ValueError("{} expected 6 arguments, got {}".format(cls.__name__, 6 + len(args)))
 
         # Ensure all parts are positive integers.
         for value in (major, minor, micro, release, pre, post):

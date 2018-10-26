@@ -37,13 +37,13 @@ class Pep562(object):
     """
 
     def __init__(self, name):
-        """Acquire `__getattr__` and `__dir__` if present in the module, but only for < Python 3.7."""
+        """Acquire `__getattr__` and `__dir__`, but only replace module for versions less than Python 3.7."""
 
         self._module = sys.modules[name]
+        self._get_attr = getattr(self._module, '__getattr__', None)
+        self._get_dir = getattr(self._module, '__dir__', None)
 
         if not PY37:
-            self._get_attr = getattr(self._module, '__getattr__', None)
-            self._get_dir = getattr(self._module, '__dir__', None)
             sys.modules[name] = self
 
     def __dir__(self):

@@ -6,4 +6,5 @@ include setup.cfg
 include tox.ini
 include LICENSE.md
 include README.md
+include CHANGES.md
 include MANIFEST.in

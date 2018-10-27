@@ -25,8 +25,6 @@ from .__meta__ import __version__, __version_info__  # noqa: F401
 
 __all__ = ('Pep562',)
 
-PY37 = sys.version_info >= (3, 7)
-
 
 class Pep562(object):
     """
@@ -42,9 +40,7 @@ class Pep562(object):
         self._module = sys.modules[name]
         self._get_attr = getattr(self._module, '__getattr__', None)
         self._get_dir = getattr(self._module, '__dir__', None)
-
-        if not PY37:
-            sys.modules[name] = self
+        sys.modules[name] = self
 
     def __dir__(self):
         """Return the overridden `dir` if one was provided, else apply `dir` to the module."""

@@ -1,7 +1,7 @@
 matrix:
 - name: markdown
   sources:
-  - README.md
+  - '{README,CHANGES}.md'
   aspell:
     lang: en
   dictionary:

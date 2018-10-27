@@ -8,7 +8,7 @@
 
 ## Overview
 
-A backport of PEP 562. Allows controlling a module's `__dir__` and `__getattr__`. Useful for deprecating attributes. Works for Python 2.7+, and on versions greater than Python 3.7 it will do nothing allowing it to be used in projects that support Python 3.7 and below.
+A backport of PEP 562. Allows controlling a module's `__dir__` and `__getattr__`. Useful for deprecating attributes. Works for Python 2.7+. And while it works on Python 3.7, it is recommended to use the official Python 3.7 implementation where applicable.
 
 ## Install
 
@@ -57,7 +57,8 @@ def __dir__():
     return sorted(list(__all__) + list(__deprecated__.keys()))
 
 
-Pep562(__name__)
+if not PY37:
+    Pep562(__name__)
 ```
 
 ## License

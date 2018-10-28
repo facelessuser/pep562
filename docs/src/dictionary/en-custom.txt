@@ -1,9 +1,12 @@
+Accessors
 MERCHANTABILITY
 NONINFRINGEMENT
 Pre
+accessor
 backport
 pre
 prerelease
 prereleases
 sortable
 sublicense
+tuple

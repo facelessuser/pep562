@@ -2,6 +2,7 @@ Accessors
 MERCHANTABILITY
 NONINFRINGEMENT
 Pre
+PyPI
 Vendoring
 accessor
 backport

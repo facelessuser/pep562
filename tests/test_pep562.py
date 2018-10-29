@@ -1,4 +1,5 @@
 """Test for PEP 562 backport."""
+from __future__ import unicode_literals
 import unittest
 import warnings
 

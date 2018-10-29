@@ -11,10 +11,10 @@ def get_version():
     """Get version and version_info without importing the entire module."""
 
     path = os.path.join(os.path.dirname(__file__), 'pep562')
-    fp, pathname, desc = imp.find_module('__meta__', [path])
+    fp, pathname, desc = imp.find_module('__init__', [path])
     try:
-        meta = imp.load_module('__meta__', fp, pathname, desc)
-        return meta.__version__, meta.__version_info__._get_dev_status()
+        module = imp.load_module('__init__', fp, pathname, desc)
+        return module.__version__, module.__version_info__._get_dev_status()
     except Exception:
         print(traceback.format_exc())
     finally:

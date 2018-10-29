@@ -1,7 +1,7 @@
 """Version tests."""
 from __future__ import unicode_literals
 import unittest
-from pep562.__meta__ import Pep440Version, parse_version
+from pep562 import Pep440Version, parse_version
 
 
 class TestVersion(unittest.TestCase):

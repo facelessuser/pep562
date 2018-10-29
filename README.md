@@ -10,6 +10,8 @@
 
 A backport of PEP 562. Allows controlling a module's `__dir__` and `__getattr__`. Useful for deprecating attributes. Works for Python 2.7+. And while it works on Python 3.7, it is recommended to use the official Python 3.7 implementation where applicable.
 
+This module can be installed and used as a dependency, or if desired, it is easy to vendor as the license is quite permissible, and the code is contained in a single file.
+
 ## Install
 
 Installation is done with `pip`:
@@ -17,6 +19,10 @@ Installation is done with `pip`:
 ```
 pip install pep562
 ```
+
+## Vendoring
+
+Simply copy the file `pep562/__init__.py` to your project and rename to `pep562`.  Import and use as needed.
 
 ## Usage
 

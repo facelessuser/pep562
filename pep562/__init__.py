@@ -242,5 +242,5 @@ class Pep562(object):
             raise
 
 
-__version_info__ = Version(1, 0, 0, ".dev-beta", 1)
+__version_info__ = Version(1, 0, 0, "final")
 __version__ = __version_info__._get_canonical()

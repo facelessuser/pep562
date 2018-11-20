@@ -20,8 +20,8 @@ matrix:
       - title
       - alt
       ignores:
-      - code
-      - pre
+      - ':matches(code, pre)'
+  - pyspelling.filters.url:
 
 - name: python
   sources:
@@ -60,3 +60,4 @@ matrix:
       # Ignore text between inline back ticks
       - open: '(?P<open>`+)'
         close: '(?P=open)'
+  - pyspelling.filters.url:

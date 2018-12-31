@@ -53,7 +53,7 @@ setup(
     author='Isaac Muse',
     author_email='Isaac.Muse@gmail.com',
     url='https://github.com/facelessuser/pep562',
-    packages=find_packages(exclude=['tests']),
+    packages=find_packages(exclude=['tests', 'tools']),
     license='MIT License',
     classifiers=[
         'Development Status :: %s' % DEVSTATUS,

@@ -8,9 +8,14 @@
 
 ## Overview
 
-A backport of PEP 562. Allows controlling a module's `__dir__` and `__getattr__`. Useful for deprecating attributes. Works for Python 2.7+. And while it works on Python 3.7, it is recommended to use the official Python 3.7 implementation where applicable.
+A backport of PEP 562. Allows controlling a module's `__dir__` and `__getattr__`. Useful for deprecating attributes.
+Works for Python 2.7+. And while it works on Python 3.7, it is recommended to use the official Python 3.7 implementation
+where applicable.
 
-This module can be installed and used as a dependency, or if desired, it is easy to vendor as the license is quite permissible, and the code is contained in a single file.
+This module can be installed and used as a dependency, or if desired, it is easy to vendor as the license is quite
+permissible, and the code is contained in a single file.
+
+Once Python 3.6 is end of life, this module will be irrelevant and will no longer receive active support.
 
 ## Install
 
@@ -71,7 +76,7 @@ if not PY37:
 
 MIT License
 
-Copyright (c) 2018 Isaac Muse <isaacmuse@gmail.com>
+Copyright (c) 2018 - 2020 Isaac Muse <isaacmuse@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -241,6 +241,11 @@ class Pep562(object):
                 return self._get_attr(name)
             raise
 
+            
+def ensure_pep562(module_name):
+    if sys.version_info < (3, 7, 0):
+        Pep562(module_name)
+
 
 __version_info__ = Version(1, 0, 0, "final")
 __version__ = __version_info__._get_canonical()

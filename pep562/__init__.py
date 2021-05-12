@@ -241,7 +241,7 @@ class Pep562(object):
                 return self._get_attr(name)
             raise
 
-            
+
 def ensure_pep562(module_name):
     if sys.version_info < (3, 7, 0):
         Pep562(module_name)

@@ -36,8 +36,7 @@ Simply copy the file `pep562/__init__.py` to your project and rename to `pep562`
 Here is a simple example where we deprecate the attribute `version` for the more standardized `__version__`.
 
 ```py
-from pep562 import Pep562
-import sys
+from pep562 import pep562
 import warnings
 
 __version__ = (1, 0, 0)
@@ -70,8 +69,7 @@ def __dir__():
     return sorted(list(__all__) + list(__deprecated__.keys()))
 
 
-if not PY37:
-    Pep562(__name__)
+pep562(__name__)
 ```
 
 ## License

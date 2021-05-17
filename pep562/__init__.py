@@ -242,8 +242,10 @@ class Pep562(object):
             raise
 
 
-def ensure_pep562(module_name):
-    if sys.version_info < (3, 7, 0):
+def pep562(module_name):
+    """Helper function to apply PEP 562."""
+
+    if sys.version_info < (3, 7):
         Pep562(module_name)
 
 

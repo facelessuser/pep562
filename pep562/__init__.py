@@ -164,7 +164,7 @@ class Version(namedtuple("Version", ["major", "minor", "micro", "release", "pre"
         """Get the canonical output string."""
 
         # Assemble major, minor, micro version and append `pre`, `post`, or `dev` if needed..
-        if self.micro == 0:
+        if self.micro == 0 and self.major != 0:
             ver = "{}.{}".format(self.major, self.minor)
         else:
             ver = "{}.{}.{}".format(self.major, self.minor, self.micro)
@@ -178,10 +178,13 @@ class Version(namedtuple("Version", ["major", "minor", "micro", "release", "pre"
         return ver
 
 
-def parse_version(ver, pre=False):
+def parse_version(ver):
     """Parse version into a comparable Version tuple."""
 
     m = RE_VER.match(ver)
+
+    if m is None:
+        raise ValueError("'{}' is not a valid version".format(ver))
 
     # Handle major, minor, micro
     major = int(m.group('major'))
@@ -249,5 +252,5 @@ def pep562(module_name):
         Pep562(module_name)
 
 
-__version_info__ = Version(1, 0, 0, "final")
+__version_info__ = Version(1, 1, 0, "final")
 __version__ = __version_info__._get_canonical()

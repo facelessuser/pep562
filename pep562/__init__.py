@@ -242,5 +242,12 @@ class Pep562(object):
             raise
 
 
+def pep562(module_name):
+    """Helper function to apply PEP 562."""
+
+    if sys.version_info < (3, 7):
+        Pep562(module_name)
+
+
 __version_info__ = Version(1, 0, 0, "final")
 __version__ = __version_info__._get_canonical()
